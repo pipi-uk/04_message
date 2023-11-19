@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>お店の予約</h1>
+  <div>
+    <div>
+      <input  id="uname" type="text" placeholder="名前を入力してください">
+    </div>
+    <div>
+      <input  id="number" type="number" placeholder="人数を入力してください">
+    </div>
+    <div>
+      <input id="menu" type="text" placeholder="メニューを選んでください" list="example">
+      <datalist id="example">
+        <option value="豪華海鮮鍋セット">豪華海鮮鍋セット</option>
+        <option value="肉だらけステーキセット">肉だらけステーキセット</option>
+        <option value="激辛超うま麻婆豆腐セット">激辛超うま麻婆豆腐セット</option>
+      </datalist>
+  </div>
+  <div>
+    <!-- <input  type="date" min="2023-11-13" max="2025-11-13" value="today"></input>
+    <input  type="time" id="time" name="予約時刻" value="10:00" min="10:00" max="17:00" step="1800"></input> -->
+    <input id="datetime" type="datetime-local" name="日時" value="2025-11-13T12:00" step="1800">
+  <div>
+    <textarea id="text" placeholder="文章を入力してください"></textarea>
+  </div>
+  </div>
+    <button id="send">送信</button>
+    <div  id="output"></div>
+ </div>
+
+ <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script type="module">
+     // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+    import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved,ServerValue }
+      from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    // 意図的にここは消しています
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app); 
+    const dbRef = ref(db,"chat");
+
+    // データ登録(click)
+    $('#send').on('click',function(){
+      const currentDate = new Date();
+        set(ref(database, 'path/to/your/data'), {
+        date: currentDate.toString(), // 文字列として保存
+        timestamp: currentDate.getTime() // UNIXタイムスタンプとして保存
+      });
+      
+      const uname = $(#uname).val()
+      const number = $(#number).val()
+      const menu = $(#menu).val()
+      const datetime = $(#datetime).val()
+      const text = $(#text).val()
+
+      console.log(uname,'unameの文字');
+      console.log(number,'textの文字');
+      console.log(menu,'textの文字');
+      console.log(datetime,'textの文字');
+      console.log(text,'textの文字');
+
+      //ここから消さない。。
+    })
+
+
+
+  </script>
+</body>
+</html>
