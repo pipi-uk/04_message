@@ -71,6 +71,18 @@
       console.log(datetime,'textの文字');
       console.log(text,'textの文字');
 
+   // 吹き出しの中にデータを表示
+   var messageHtml = '<div class="bubble">' +
+        '<p><strong>名前:</strong> ' + uname + '</p>' +
+        '<p><strong>人数:</strong> ' + number + '</p>' +
+        '<p><strong>メニュー:</strong> ' + menu + '</p>' +
+        '<p><strong>日時:</strong> ' + datetime + '</p>' +
+        '<p><strong>追加のテキスト:</strong> ' + text + '</p>' +
+        '</div>';
+
+    $('#output').append(messageHtml);
+
+
       //ここから消さない。。
     })
 

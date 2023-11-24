@@ -40,10 +40,11 @@ button {
   margin: 0 auto;
   border-radius: 8px;
   padding: 10px;
+  background-color: aliceblue;
 }
 
 body {
-  background-color: rgb(208, 208, 149);
+  background-color: white;
 }
 
 
